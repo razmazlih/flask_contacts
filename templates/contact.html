@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Info</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Contact Management System</h1>
+    </header>
+    <div class="container">
+        <h2>Contact Info</h2>
+        {% for key, value in contact.items() %}
+            <p><strong>{{ key.capitalize() }}:</strong> {{ value }}</p>
+        {% endfor %}
+        <a href="/">Back to contacts list</a>
+    </div>
+    <footer>
+        <p>&copy; 2024 Python Developer</p>
+    </footer>
+</body>
+</html>
