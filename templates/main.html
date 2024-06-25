@@ -4,22 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Contacts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Contact Management System</h1>
-    </header>
-    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Contact Management System</a>
+    </nav>
+    <div class="container mt-5">
         <h2>All Contacts</h2>
-        <ul>
+        <ul class="list-group">
             {% for idx, contact in contacts %}
-                <li><a href="/{{ idx }}">{{ contact.name }}</a> (<a href="/edit/{{ idx }}">Edit</a>)</li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="/{{ idx }}">{{ contact.name }}</a>
+                    <a href="/edit/{{ idx }}" class="btn btn-sm btn-primary">Edit</a>
+                </li>
             {% endfor %}
         </ul>
-        <a href="/add">Add New Contact</a>
+        <a href="/add" class="btn btn-success mt-3">Add New Contact</a>
     </div>
-    <footer>
+    <footer class="footer bg-dark text-white text-center py-3">
         <p>&copy; Raz Mazlih</p>
     </footer>
 </body>
